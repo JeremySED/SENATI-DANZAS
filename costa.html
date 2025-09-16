@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danzas Típicas de la Costa</title>
+  <!-- Fuente rocoso -->
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#f7e28f;
+      --accent:#16a085;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Baloo 2',cursive;
+      color:#3b2f2f;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      background:#f4d98a;
+      overflow:hidden;
+      position:relative;
+    }
+    /* Arena granulada */
+    body::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 2px),
+        radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 2px),
+        linear-gradient(#f7e28f, #e5c26b);
+      background-size: 30px 30px, 15px 15px, cover;
+      opacity:0.7;
+      z-index:0;
+    }
+    /* Olas */
+    .wave {
+      position:absolute;
+      bottom:-40px;
+      left:0;
+      width:300%;
+      height:45%;
+      background:rgba(0,160,200,0.6);
+      border-radius:50% 50% 0 0;
+      animation:waveMove 10s ease-in-out infinite alternate;
+      filter:blur(3px);
+      z-index:1;
+    }
+    .wave::before, .wave::after {
+      content:"";
+      position:absolute;
+      width:300%;
+      height:100%;
+      left:0;top:0;
+      background:rgba(0,200,220,0.4);
+      border-radius:50% 50% 0 0;
+      animation:waveDetail 6s linear infinite alternate;
+    }
+    .wave::after {
+      background:rgba(0,255,255,0.2);
+      animation:waveDetail2 8s linear infinite alternate;
+    }
+    @keyframes waveMove {
+      0% {transform:translateX(0) translateY(40px) scaleY(0.8);}
+      100% {transform:translateX(-50%) translateY(0) scaleY(1);}
+    }
+    @keyframes waveDetail {
+      from {transform:translateX(0);}
+      to {transform:translateX(-25%);}
+    }
+    @keyframes waveDetail2 {
+      from {transform:translateX(-20%);}
+      to {transform:translateX(5%);}
+    }
+    /* Partículas de arena flotantes */
+    .sand-particle {
+      position:absolute;
+      width:6px;height:6px;
+      background:#f7e28f;
+      border-radius:50%;
+      opacity:0.9;
+      pointer-events:none;
+      animation:floatSand 8s linear infinite;
+    }
+    @keyframes floatSand {
+      0% {transform:translateY(0) translateX(0);opacity:1;}
+      50% {transform:translateY(-80px) translateX(30px);opacity:0.7;}
+      100% {transform:translateY(-150px) translateX(-30px);opacity:0;}
+    }
+    /* Título estilo rocoso */
+    h1 {
+      font-family:'Rock Salt',cursive;
+      font-size:6rem;
+      margin:60px 20px 25px;
+      color:#c97e3d;
+      text-shadow:
+        3px 3px 0 #8c5a2f,
+        6px 6px 0 #5c3b1e,
+        0 0 20px rgba(0,0,0,0.4);
+      letter-spacing:4px;
+      z-index:2;
+    }
+    .slider-container {
+      position:relative;
+      width:90%;
+      max-width:1500px;
+      aspect-ratio:16/9;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.3);
+      z-index:2;
+      background:#000;
+    }
+    .slider-container img {
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:scale(1.2);
+      transition:opacity 1s ease-in-out,transform 12s ease-in-out;
+    }
+    .slider-container img.active {
+      opacity:1;
+      transform:scale(1);
+    }
+    .caption {
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:40px;
+      background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+      opacity:0;
+      transition:opacity .8s ease-in-out;
+    }
+    .caption.active {opacity:1;}
+    .caption h2 {
+      font-size:3.8rem;
+      color:var(--primary);
+      text-shadow:2px 2px 5px rgba(0,0,0,0.7);
+      margin-bottom:20px;
+    }
+    .points {
+      list-style:none;
+      font-size:2rem;
+      font-weight:700;
+      color:#fff;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    }
+    footer {
+      margin:25px;
+      font-size:1.3rem;
+      color:#6b4f3b;
+      text-shadow:1px 1px 2px rgba(255,255,255,0.6);
+      z-index:2;
+    }
+  </style>
+</head>
+<body>
+  <div class="wave"></div>
+  <h1>Danzas Típicas de la Costa</h1>
+
+  <div class="slider-container">
+    <img src="costa/marinera-nortena.jpg" alt="Marinera Norteña" class="active">
+    <img src="costa/marinera-limena.jpg" alt="Marinera Limeña">
+    <img src="costa/festejo.jpg" alt="Festejo">
+    <img src="costa/tondero.jpg" alt="Tondero">
+    <img src="costa/lando.jpg" alt="Landó">
+    <img src="costa/zamacueca.jpg" alt="Zamacueca">
+    <img src="costa/alcatraz.jpg" alt="Alcatraz">
+    <img src="costa/son-de-los-diablos.jpg" alt="Son de los Diablos">
+    <img src="costa/vals-criollo.jpg" alt="Vals Criollo">
+    <img src="costa/lavanderas.jpg" alt="Lavanderas">
+    <div class="caption active">
+      <h2>Marinera Norteña</h2>
+      <ul class="points">
+        <li>Danza elegante de cortejo con pañuelo.</li>
+        <li>Patrimonio Cultural del Perú.</li>
+        <li>Zapateo vigoroso y coquetería.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>© 2025 Jeremy Encinas</footer>
+
+  <script>
+    for(let i=0;i<60;i++){
+      const p=document.createElement('div');
+      p.className='sand-particle';
+      p.style.left=Math.random()*window.innerWidth+'px';
+      p.style.bottom=Math.random()*100+'px';
+      p.style.animationDuration=(6+Math.random()*6)+'s';
+      document.body.appendChild(p);
+    }
+  </script>
+  <script src="costa.js"></script>
+</body>
+</html>

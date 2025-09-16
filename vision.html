@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visión - BRISAS DEL TITICACA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(to bottom,#d0f0c0,#a8e6cf);
+      color:#333;
+    }
+    header{text-align:center;padding:50px 20px;}
+    header h1{
+      font-family:'Rock Salt',cursive;
+      font-size:3.5rem;
+      color:#2e7d32;
+      text-shadow:3px 3px 0 #81c784,6px 6px 0 rgba(0,0,0,0.2);
+      animation:fadeDown 1.2s ease-out;
+    }
+    section{
+      max-width:1000px;
+      margin:40px auto;
+      padding:20px;
+      text-align:center;
+      animation:fadeIn 1.4s ease-out;
+    }
+    section p{font-size:1.2rem;line-height:1.8;margin-bottom:20px;}
+    .vision-img{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:20px;
+    }
+    .vision-img img{
+      width:260px;
+      height:180px;
+      object-fit:cover;
+      border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+      transition:transform .3s ease;
+    }
+    .vision-img img:hover{transform:scale(1.08);}
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#2e7d32;
+      color:#fff;
+      margin-top:50px;
+    }
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Visión</h1>
+  </header>
+
+  <section>
+    <p>
+      Nuestra visión es ser el puente cultural más importante del Perú, llevando la esencia de la
+      costa, la sierra y la selva al mundo. Queremos inspirar orgullo y unidad a través de las danzas
+      tradicionales que representan nuestra historia y diversidad.
+    </p>
+    <div class="vision-img">
+      <img src="costa/tondero.jpg" alt="Tondero">
+      <img src="sierra/tinku.jpg" alt="Tinku">
+      <img src="costa/lando.jpg" alt="Landó">
+    </div>
+  </section>
+
+  <footer>© 2025 BRISAS DEL TITICACA — Jeremy Encinas</footer>
+</body>
+</html>

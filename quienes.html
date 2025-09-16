@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes Somos - BRISAS DEL TITICACA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(to bottom,#fceabb,#f8b500);
+      color:#333;
+    }
+    header{text-align:center;padding:50px 20px;}
+    header h1{
+      font-family:'Rock Salt',cursive;
+      font-size:3.5rem;
+      color:#b71c1c;
+      text-shadow:3px 3px 0 #fbc02d,6px 6px 0 rgba(0,0,0,0.2);
+      animation:fadeDown 1.2s ease-out;
+    }
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-50px);}to{opacity:1;transform:translateY(0);}}
+    section{
+      max-width:1000px;
+      margin:40px auto;
+      padding:20px;
+      text-align:center;
+      animation:fadeIn 1.4s ease-out;
+    }
+    section p{font-size:1.2rem;line-height:1.8;margin-bottom:30px;}
+    .gallery{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+      justify-content:center;
+    }
+    .gallery img{
+      width:250px;
+      height:180px;
+      object-fit:cover;
+      border-radius:15px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.3);
+      transition:transform .3s ease;
+    }
+    .gallery img:hover{transform:scale(1.08);}
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#b71c1c;
+      color:#fff;
+      margin-top:50px;
+    }
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quiénes Somos</h1>
+  </header>
+
+  <section>
+    <p>
+      En <strong>BRISAS DEL TITICACA</strong> celebramos la riqueza cultural del Perú. Somos un colectivo
+      apasionado por las danzas tradicionales que conecta la costa, la sierra y la selva.  
+      Nuestro propósito es difundir nuestra herencia y unir generaciones a través del arte.
+    </p>
+    <div class="gallery">
+      <img src="costa/marinera-nortena.jpg" alt="Marinera Norteña">
+      <img src="costa/marinera-limena.jpg" alt="Marinera Limeña">
+      <img src="selva/anaconda.jpg" alt="Anaconda">
+    </div>
+  </section>
+
+  <footer>© 2025 BRISAS DEL TITICACA — Jeremy Encinas</footer>
+</body>
+</html>

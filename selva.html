@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danzas Típicas de la Selva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#f2fce2;
+      --accent:#2e7d32;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Kalam', cursive;
+      background:linear-gradient(to bottom, #2e7d32 0%, #66bb6a 40%, #a5d6a7 100%);
+      min-height:100vh;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      position:relative;
+      color:#1b3d1b;
+    }
+
+    /* Lianas gigantes */
+    .liana {
+      position:absolute;
+      width:30px;
+      height:120vh;
+      background:linear-gradient(to bottom,#1b5e20 0%,#4caf50 50%,#81c784 100%);
+      top:-10vh;
+      border-radius:30px;
+      animation:swing 6s ease-in-out infinite alternate;
+      filter:drop-shadow(0 0 10px rgba(0,0,0,0.5));
+      z-index:1;
+    }
+    @keyframes swing {
+      from {transform:rotate(-8deg);}
+      to {transform:rotate(8deg);}
+    }
+
+    /* Hojas colgantes */
+    .leaf {
+      position:absolute;
+      width:60px;
+      height:30px;
+      background:#388e3c;
+      border-radius:30px 0 30px 0;
+      transform:rotate(20deg);
+      filter:drop-shadow(0 0 5px rgba(0,0,0,0.4));
+      z-index:2;
+    }
+
+    /* Luciérnagas */
+    .firefly {
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:rgba(255,255,153,0.8);
+      border-radius:50%;
+      box-shadow:0 0 8px rgba(255,255,153,0.8);
+      animation:fly 10s linear infinite;
+      z-index:2;
+    }
+    @keyframes fly {
+      0%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(-200px) translateX(50px);}
+      100%{transform:translateY(-400px) translateX(-50px);}
+    }
+
+    h1 {
+      font-family:'Rock Salt', cursive;
+      font-size:5rem;
+      margin:50px 20px 25px;
+      color:#e8f5e9;
+      text-shadow:3px 3px 0 #1b5e20,6px 6px 0 #2e7d32,0 0 20px rgba(0,0,0,0.5);
+      z-index:3;
+    }
+
+    .slider-container {
+      position:relative;
+      width:90%;
+      max-width:1400px;
+      aspect-ratio:16/9;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+      background:#000;
+      z-index:3;
+    }
+
+    .slider-container img {
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:scale(1.2);
+      transition:opacity 1s ease-in-out,transform 10s ease-in-out;
+    }
+    .slider-container img.active {
+      opacity:1;
+      transform:scale(1);
+    }
+
+    .caption {
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:40px;
+      background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+      opacity:0;
+      transition:opacity .8s ease-in-out;
+    }
+    .caption.active {opacity:1;}
+    .caption h2 {
+      font-size:3.5rem;
+      color:var(--primary);
+      text-shadow:2px 2px 5px rgba(0,0,0,0.8);
+      margin-bottom:20px;
+    }
+    .points {
+      list-style:none;
+      font-size:1.8rem;
+      font-weight:700;
+      color:#fff;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    footer {
+      margin:20px;
+      font-size:1.2rem;
+      color:#e8f5e9;
+      text-shadow:1px 1px 2px rgba(0,0,0,0.6);
+      z-index:3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Lianas gigantes distribuidas -->
+  <div class="liana" style="left:5%;animation-delay:0s;"></div>
+  <div class="liana" style="left:25%;animation-delay:1s;"></div>
+  <div class="liana" style="left:50%;animation-delay:2s;"></div>
+  <div class="liana" style="left:75%;animation-delay:3s;"></div>
+
+  <!-- Hojas colgantes -->
+  <div class="leaf" style="left:8%;top:150px;transform:rotate(-20deg);"></div>
+  <div class="leaf" style="left:28%;top:300px;transform:rotate(40deg);"></div>
+  <div class="leaf" style="left:52%;top:200px;transform:rotate(-30deg);"></div>
+  <div class="leaf" style="left:78%;top:400px;transform:rotate(25deg);"></div>
+
+  <h1>Danzas Típicas de la Selva</h1>
+
+  <div class="slider-container">
+    <img src="selva/pandilla-amazonica.jpeg" alt="Pandilla Amazónica" class="active">
+    <img src="selva/anaconda.jpg" alt="Anaconda">
+    <img src="selva/danzantes-de-tipunaves.jpg" alt="Danzantes de Tipunaves">
+    <img src="selva/ayahuasca.jpg" alt="Ayahuasca">
+    <img src="selva/changanacuy.jpg" alt="Changanacuy">
+    <img src="selva/kurupira.jpg" alt="Kurupira">
+    <img src="selva/baile-de-la-culebra.jpg" alt="Baile de la Culebra">
+    <img src="selva/otorongo.jpg" alt="Otorongo">
+    <img src="selva/danzantes-del-bufeo.jpg" alt="Danzantes del Bufeo">
+    <img src="selva/shapish.jpg" alt="Shapish">
+    <div class="caption active">
+      <h2>Pandilla Amazónica</h2>
+      <ul class="points">
+        <li>Danza alegre y festiva de la Amazonía.</li>
+        <li>Representa la celebración en comunidad.</li>
+        <li>Se baila en carnavales selváticos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>© 2025 Jeremy Encinas</footer>
+
+  <script>
+    // Luciérnagas
+    for(let i=0;i<50;i++){
+      const f=document.createElement('div');
+      f.className='firefly';
+      f.style.left=Math.random()*window.innerWidth+'px';
+      f.style.bottom=Math.random()*window.innerHeight+'px';
+      f.style.animationDuration=(8+Math.random()*8)+'s';
+      document.body.appendChild(f);
+    }
+  </script>
+  <script src="selva.js"></script>
+</body>
+</html>

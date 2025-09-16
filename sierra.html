@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Danzas Típicas de la Sierra</title>
+  <!-- Fuente estilo andino/serrano -->
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Rock+Salt&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:#f7f3e8;
+      --accent:#8b5e3c;
+      --mountain:#5e4633;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body {
+      font-family:'Kalam', cursive;
+      background:linear-gradient(to top, #b38b59 0%, #d9c6a5 30%, #f7f3e8 100%);
+      min-height:100vh;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      color:#3a2a20;
+      position:relative;
+    }
+    /* Montañas */
+    .mountain {
+      position:absolute;
+      bottom:0;
+      width:200%;
+      height:50%;
+      background:var(--mountain);
+      clip-path:polygon(0% 100%, 10% 50%, 25% 80%, 40% 40%, 55% 70%, 70% 30%, 85% 60%, 100% 20%, 100% 100%);
+      animation:moveMountains 30s linear infinite alternate;
+      z-index:0;
+    }
+    @keyframes moveMountains {
+      0% {transform:translateX(0);}
+      100% {transform:translateX(-10%);}
+    }
+    /* Nieve/partículas flotantes */
+    .snow {
+      position:absolute;
+      width:6px;height:6px;
+      background:rgba(255,255,255,0.9);
+      border-radius:50%;
+      animation:fall 10s linear infinite;
+      z-index:2;
+    }
+    @keyframes fall {
+      0% {transform:translateY(-10vh) translateX(0);}
+      100% {transform:translateY(110vh) translateX(20px);}
+    }
+    h1 {
+      font-family:'Rock Salt', cursive;
+      font-size:5rem;
+      margin:40px 20px 25px;
+      color:#4b2e1f;
+      text-shadow:3px 3px 0 #d4a373,6px 6px 0 #8b5e3c,0 0 20px rgba(0,0,0,0.4);
+      letter-spacing:3px;
+      z-index:3;
+    }
+    .slider-container {
+      position:relative;
+      width:90%;
+      max-width:1400px;
+      aspect-ratio:16/9;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.4);
+      background:#000;
+      z-index:3;
+    }
+    .slider-container img {
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transform:scale(1.2);
+      transition:opacity 1s ease-in-out, transform 10s ease-in-out;
+    }
+    .slider-container img.active {
+      opacity:1;
+      transform:scale(1);
+    }
+    .caption {
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:40px;
+      background:linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+      opacity:0;
+      transition:opacity .8s ease-in-out;
+    }
+    .caption.active {opacity:1;}
+    .caption h2 {
+      font-size:3.5rem;
+      color:var(--primary);
+      text-shadow:2px 2px 5px rgba(0,0,0,0.8);
+      margin-bottom:20px;
+    }
+    .points {
+      list-style:none;
+      font-size:1.8rem;
+      font-weight:700;
+      color:#fff;
+      text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+    }
+    footer {
+      margin:20px;
+      font-size:1.2rem;
+      color:#4b2e1f;
+      text-shadow:1px 1px 2px rgba(255,255,255,0.6);
+      z-index:3;
+    }
+  </style>
+</head>
+<body>
+  <div class="mountain"></div>
+
+  <h1>Danzas Típicas de la Sierra</h1>
+
+  <div class="slider-container">
+    <img src="sierra/huayno.jpg" alt="Huayno" class="active">
+    <img src="sierra/carnaval-ayacuchano.jpg" alt="Carnaval Ayacuchano">
+    <img src="sierra/diablada-puneña.jpg" alt="Diablada Puneña">
+    <img src="sierra/saya-andina.jpg" alt="Saya Andina">
+    <img src="sierra/waylas-huancainas.jpg" alt="Waylas Huancaínas">
+    <img src="sierra/tinku.jpg" alt="Tinku">
+    <img src="sierra/danza-de-las-tijeras.jpg" alt="Danza de las Tijeras">
+    <img src="sierra/carnaval-cajamarquino.jpg" alt="Carnaval Cajamarquino">
+    <img src="sierra/qhapaq-negro.jpg" alt="Qhapaq Negro">
+    <img src="sierra/qhapaq-chunchu.jpg" alt="Qhapaq Chunchu">
+    <div class="caption active">
+      <h2>Huayno</h2>
+      <ul class="points">
+        <li>Danza tradicional de los Andes.</li>
+        <li>Expresión de alegría y trabajo comunitario.</li>
+        <li>Acompañada de quenas y charangos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>© 2025 Jeremy Encinas</footer>
+
+  <script>
+    // Generar partículas de nieve
+    for(let i=0;i<60;i++){
+      const s=document.createElement('div');
+      s.className='snow';
+      s.style.left=Math.random()*window.innerWidth+'px';
+      s.style.animationDuration=(6+Math.random()*6)+'s';
+      s.style.opacity=Math.random();
+      document.body.appendChild(s);
+    }
+  </script>
+  <script src="sierra.js"></script>
+</body>
+</html>
